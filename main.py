@@ -18,7 +18,7 @@ class MyServer(BaseHTTPRequestHandler):
         query_component = parse_qs(urlparse(self.path).query)
         print(query_component)
         self.send_response(200)  # Отправка кода ответа
-        self.send_header("Content-type", "application/json")  # Отправка типа данных, который будет передаваться
+        self.send_header("Content-type", "text/html")  # Отправка типа данных, который будет передаваться
         self.end_headers()  # Завершение формирования заголовков ответа
         with open(page_content, "rb") as html_file:
             self.wfile.write(bytes(html_file.read()))  # Тело ответа
